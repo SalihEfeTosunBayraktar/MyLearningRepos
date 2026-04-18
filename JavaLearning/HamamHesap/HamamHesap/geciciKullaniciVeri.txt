@@ -1,0 +1,27 @@
+<----Hunat Hamamı Hesap Uygulaması Geçici Veri Belgesi---->
+-------------By Legendnoobe------------
+Toplam Tutar(0)=0
+Toplam Yetiskin Giris(1)=0
+Toplam Çocuk Giris(2)=0
+Toplam Tüm Kese(3)=0
+Toplam Sırt Kese(4)=0
+Toplam Köpük Masaşı(5)=0
+Toplam Yağ Masajı(6)=0
+Toplam Kolonya Masajı(7)=0
+Toplam Kumaş Kese(8)=0
+Toplam Örgü Lif(9)=0
+Toplam Yeşil Sabun(10)=0
+Toplam Beyaz Sabun(11)=0
+Toplam Topuk Taşı(12)=0
+Toplam Şampuan(13)=0
+Toplam Permatik(14)=0
+Toplam Meyveli Soda(15)=0
+Toplam Sade Soda(16)=0
+Toplam Gazoz(17)=0
+Toplam Teneke İçecek(18)=0
+Toplam Kola(19)=0
+Toplam Fanta(20)=0
+Toplam Ayran(21)=0
+Toplam Su(22)=0
+Toplam Çay(23)=0
+Toplam Kahve(24)=0
