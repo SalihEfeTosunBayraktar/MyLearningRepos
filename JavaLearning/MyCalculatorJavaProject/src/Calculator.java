@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -28,11 +27,13 @@ public class Calculator {
     private JButton CosButton;
     private JLabel textDisplay;
     private JTextField textField2;
+    private JButton ansButton;
+    private JButton button10;
 
     private double total1;
     private double total2;
     private double answerNumber;
-    private String mode;
+    private String mode = "null";
     public static boolean CalculatorWorking = false;
     public static boolean process =false;
     public List<JButton> ProcessButtons=new ArrayList<>();
@@ -175,7 +176,6 @@ public class Calculator {
                 total2 = 0;
                 textField1.setText("");
                 textField2.setText("");
-                textDisplay.setText("");
                 String mode = "";
 
             }
@@ -200,43 +200,57 @@ public class Calculator {
         EqualsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (mode.equals("Plus")) {
-                    total2 = total1 + Double.parseDouble(textField1.getText());
+                if (!textField2.getText().contains("="))
+               if (textField1.getText().length()>0 && textField2.getText().length()>0){
+                   if (mode.equals("Plus")) {
+                       total2 = total1 + Double.parseDouble(textField1.getText());
 
-                }
-                else if (mode.equals("Multiply")){
-                    total2 = total1 * Double.parseDouble(textField1.getText());
+                   }
+                   else if (mode.equals("Multiply")){
+                       total2 = total1 * Double.parseDouble(textField1.getText());
 
-                }
-                else if (mode.equals("Minus")){
-                    total2 = total1 - Double.parseDouble(textField1.getText());
+                   }
+                   else if (mode.equals("Minus")){
+                       total2 = total1 - Double.parseDouble(textField1.getText());
 
-                }
-                else if (mode.equals("Divide")){
-                    total2 = total1 / Double.parseDouble(textField1.getText());
+                   }
+                   else if (mode.equals("Divide")){
+                       total2 = total1 / Double.parseDouble(textField1.getText());
 
-                }
+                   }
+                   double ans = total2;
+                   textField2.setText(textField2.getText()+Double.parseDouble(textField1.getText()));
+                   textField1.setText(Double.toString(total2));
+                   mode = "";
 
-                textField2.setText(textField2.getText()+Double.parseDouble(textField1.getText()));
-                textField1.setText(Double.toString(total2));
-                mode = "";
-
-                Timer timer = new Timer(200, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        textField2.setText(textField2.getText()+" = "+textField1.getText());
-                        textField1.setText("");
-                    }
-                });
-                timer.setRepeats(false); // sadece bir kez çalışsın
-                timer.start();
-
-
+                   Timer timer = new Timer(200, new ActionListener() {
+                       @Override
+                       public void actionPerformed(ActionEvent evt) {
+                           textField2.setText(textField2.getText()+" = "+textField1.getText());
+                           textField1.setText("");
+                       }
+                   });
+                   timer.setRepeats(false); // sadece bir kez çalışsın
+                   timer.start();
+               }
             }
         });
 
 
-
+        ansButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textField1.setText(Double.toString(total2));
+            }
+        });
+        button10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField1.getText().length()>=1){
+                    textField1.setText(textField1.getText().substring(0,textField1.getText().length()-1));
+                }
+            }
+        });
     }
 
 
